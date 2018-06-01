@@ -24,7 +24,7 @@ public class AccountDAOTest {
 	}
 
 	public static void testFindByLogin2(){
-		Login login = new Login("TESTUSER", "1234");
+		Login login = new Login("TESTUSER", "12w2345u34");
 		AccountDAO dao = new AccountDAO();
 		Account result = dao.findByLogin(login);
 		if(result == null){
