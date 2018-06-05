@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet"  href="${pageContext.request.contextPath}/stylesheet.css">
 <meta charset="UTF-8">
-<link rel="stylesheet" href="http://localhost:8080/Quiz/stylesheet.css">
 <title>ログイン</title>
 </head>
 <body>
