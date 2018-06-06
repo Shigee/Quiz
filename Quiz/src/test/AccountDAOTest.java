@@ -3,11 +3,21 @@ package test;
 import dao.AccountDAO;
 import model.Account;
 import model.Login;
+import model.NewAccount;
 
 public class AccountDAOTest {
 	public static void main(String[] args){
+		testCreateRecord();
 		testFindByLogin1();
 		testFindByLogin2();
+
+	}
+
+	//レコードの追加テスト
+	public static void testCreateRecord(){
+		NewAccount na = new NewAccount("UNKO","123456");
+		AccountDAO dao = new AccountDAO();
+		dao.createRecord(na);
 	}
 
 	public static void testFindByLogin1(){
