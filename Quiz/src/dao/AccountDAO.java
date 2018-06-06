@@ -10,6 +10,8 @@ import model.Account;
 import model.Login;
 
 public class AccountDAO {
+
+	//ACCOUNT内のレコードを探索
 	public Account findByLogin(Login login){
 		Connection conn = null;
 		Account account = null;
@@ -17,7 +19,9 @@ public class AccountDAO {
 			Class.forName("org.h2.Driver");
 			conn = DriverManager.getConnection("jdbc:h2:~/test","sa","");
 
+			//データの取得(SELECT)
 			String sql = "SELECT USER_NAME, PASS, SCORE FROM ACCOUNT WHERE USER_NAME = ? AND PASS = ?";
+			//SQLの送信
 			PreparedStatement pSmt = conn.prepareStatement(sql);
 			pSmt.setString(1, login.getUserName());
 			pSmt.setString(2, login.getPass());
