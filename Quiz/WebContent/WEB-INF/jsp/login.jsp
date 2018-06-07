@@ -13,6 +13,7 @@
 パスワード:<input type="password" name="pass"><br>
 <input type="submit" value="ログイン">
 </form>
+<a href="/Quiz/EntryServlet">新規登録</a>
     </div>
 </body>
 </html>

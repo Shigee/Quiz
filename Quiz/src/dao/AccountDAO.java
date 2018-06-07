@@ -57,7 +57,7 @@ public class AccountDAO {
 		return account;
 	}
 
-	//ACCOUNTに新たなユーザーを追加(失敗ナウw)
+	//ACCOUNTに新たなユーザーを追加(なんかへん)
 	public Account createRecord(NewAccount newAccount){
 		Connection conn = null;
 		Account account = null;
@@ -78,6 +78,8 @@ public class AccountDAO {
 			pSmt.execute();
 			//コミット
             conn.commit();
+
+
 
 		}catch(SQLException e){
 			e.printStackTrace();
