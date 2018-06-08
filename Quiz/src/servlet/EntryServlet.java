@@ -33,20 +33,22 @@ public class EntryServlet extends HttpServlet {
 		String userName = request.getParameter("userName");
 		String pass = request.getParameter("pass");
 
+		//入力情報をBOに渡す
 		NewAccount na = new NewAccount(userName, pass);
 		EntryLogic bo = new EntryLogic();
 		boolean result = bo.execute(na);
 
-		//なんかよくわからんが一応登録はできる（空白でもできてしまう）
+		//登録可能かどうか
 		if(result){
-			response.sendRedirect("/Quiz/EntryServlet");
-
-		}else{
+			//OKならログイン画面へフォワード
 			HttpSession session = request.getSession();
 			session.setAttribute("userName", userName);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 			dispatcher.forward(request, response);
+		}else{
+			//NGなら登録画面にリダイレクト
+			response.sendRedirect("/Quiz/EntryServlet");
 		}
 	}
 }

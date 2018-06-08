@@ -57,46 +57,45 @@ public class AccountDAO {
 		return account;
 	}
 
-	//ACCOUNTに新たなユーザーを追加(なんかへん)
-	public Account createRecord(NewAccount newAccount){
+	//ACCOUNTに新たなレコードを追加
+	public boolean createRecord(NewAccount newAccount){
 		Connection conn = null;
-		Account account = null;
 
 		//データベースに接続
 		try{
 			Class.forName("org.h2.Driver");
 			conn = DriverManager.getConnection("jdbc:h2:~/test","sa","");
-			//オートコミットをオフ
-			conn.setAutoCommit(false);
 
-			//データの追加(INSERT)
+			//レコード追加用のSQL文(INSERT)
 			String sql = "INSERT INTO ACCOUNT(USER_NAME, PASS) VALUES(?, ?)";
 			//SQLの送信
 			PreparedStatement pSmt = conn.prepareStatement(sql);
+			//VALUESに文字列をセット
 			pSmt.setString(1, newAccount.getUserName());
 			pSmt.setString(2, newAccount.getPass());
-			pSmt.execute();
-			//コミット
-            conn.commit();
+			//INSERT文を実行する
+			int result = pSmt.executeUpdate();
 
-
+			if(result != 1){
+				return false;
+			}
 
 		}catch(SQLException e){
 			e.printStackTrace();
-			return null;
+			return false;
 		}catch(ClassNotFoundException e){
 			e.printStackTrace();
-			return null;
+			return false;
 		}finally{
 			if(conn != null){
 				try{
 					conn.close();
 				}catch(SQLException e){
 				e.printStackTrace();
-				return null;
+				return false;
 				}
 			}
 		}
-		return account;
+		return true;
 	}
 }
