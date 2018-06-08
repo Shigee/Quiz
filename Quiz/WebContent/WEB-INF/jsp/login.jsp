@@ -12,9 +12,8 @@
 ユーザー名:<input type="text" name="userName"><br>
 パスワード:<input type="password" name="pass"><br>
 <input type="submit" value="ログイン">
+<input type="button" value="新規登録" onclick="location.href='/Quiz/EntryServlet'">
 </form>
-    </div>
-    <div id="container"><a href="/Quiz/EntryServlet" class="login_btn">新規登録</a>
     </div>
 </body>
 </html>
