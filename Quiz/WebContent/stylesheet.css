@@ -73,16 +73,92 @@ after { clear: both; }
     height: 50px;
 }
 
+
+
+/**#login form input[type="submit"]**/
 #login form input[type="submit"] {
-    background: #b5cd60;
-    border: 0;
-    width: 100%;
-    height: 40px;
-    border-radius: 3px;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
+    width: 180px;
+    height:50px;
+    text-align: center;
+    background-color: #9ec34b;
+    font-size: 16px;
+    line-height: 52px;
+    color: #FFF;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #9ec34b;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
-#login form input[type="submit"]:hover {
-    background: #16aa56;
+#login form input[type="submit"]:after{
+    width: 100%;
+    height: 0;
+    content:"";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background :#008000;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transition: .2s;
+    z-index: -1;
+}
+#login form input[type="submit"]:hover{
+    color: #9ec34b;
+}
+#login form input[type="submit"]:hover:after{
+    height: 240%;
+    opacity: 1;
+}
+#login form input[type="submit"]:active:after{
+    height: 340%;
+    opacity: 1;
+}
+}
+#container {
+    font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
+    text-align: center;
+    padding-top: 40px;
+}
+.login_btn {
+    display: inline-block;
+    vertical-align: middle;
+    width: 180px;
+    height:50px;
+    text-align: center;
+    background-color: #9ec34b;
+    font-size: 16px;
+    line-height: 52px;
+    color: #FFF;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #9ec34b;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.login_btn:after{
+    width: 100%;
+    height: 0;
+    content:"";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background : #FFF;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transition: .2s;
+    z-index: -1;
+}
+.login_btn:hover{
+    color: #9ec34b;
+}
+.login_btn:hover:after{
+    height: 240%;
+    opacity: 1;
+}
+.login_btn:active:after{
+    height: 340%;
+    opacity: 1;
 }
