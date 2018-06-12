@@ -73,45 +73,28 @@ after { clear: both; }
     height: 50px;
 }
 #login form input[type="submit"] {
-    margin: 10px;
+    background-color: #9ec34b;
+    border-radius: 0px 3px 3px 0px;
+    color: #FFF;
+    margin: 1em;
     width: 120px;
     height:50px;
     text-align: center;
+}
+#login form input[type="submit"] {
     background-color: #9ec34b;
-    font-size: 16px;
-    line-height: 52px;
-    color: #FFF;
-    text-decoration: none;
-    font-weight: bold;
-    border: 2px solid #9ec34b;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
+    color: #fff !important;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    margin: 10px 0 0 0;
 }
-#login form input[type="submit"]:after{
-    width: 100%;
-    height: 0;
-    content:"";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background :#008000;
-    opacity: 0;
-    transform: translateX(-50%) translateY(-50%) rotate(45deg);
-    transition: .2s;
-    z-index: -1;
-}
-#login form input[type="submit"]:hover{
-    color: #9ec34b;
-}
-#login form input[type="submit"]:hover:after{
-    height: 240%;
-    opacity: 1;
-}
-#login form input[type="submit"]:active:after{
-    height: 340%;
-    opacity: 1;
-}
+#login form input[type="submit"]:hover {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
 }
 #container {
     font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
@@ -161,42 +144,27 @@ after { clear: both; }
 }
 
 #login form input[type="button"] {
+    background-color: #9ec34b;
+    border-radius: 0px 3px 3px 0px;
+    color: #FFF;
+    margin-bottom: 1em;
     margin: 10px;
     width: 120px;
     height:50px;
     text-align: center;
+}
+#login form input[type="button"] {
     background-color: #9ec34b;
-    font-size: 16px;
-    line-height: 52px;
-    color: #FFF;
-    text-decoration: none;
-    font-weight: bold;
-    border: 2px solid #9ec34b;
-    position: fixed;
-    overflow: hidden;
-    z-index: 1;
+    color: #fff !important;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    margin: 10px 0 0 0;
 }
-#login form input[type="button"]:after{
-    width: 100%;
-    height: 0;
-    content:"";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background :#008000;
-    opacity: 0;
-    transform: translateX(-50%) translateY(-50%) rotate(45deg);
-    transition: .2s;
-    z-index: -1;
-}
-#login form input[type="button"]:hover{
-    color: #9ec34b;
-}
-#login form input[type="button"]:hover:after{
-    height: 240%;
-    opacity: 1;
-}
-#login form input[type="button"]:active:after{
-    height: 340%;
-    opacity: 1;
+#login form input[type="button"]:hover {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
 }
