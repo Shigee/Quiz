@@ -14,7 +14,7 @@ public class EntryLogic {
 			return result;
 		}else{
 			AccountDAO dao = new AccountDAO();
-			boolean result =dao.createRecord(NewAccount);
+			boolean result = dao.createRecord(NewAccount);
 			return result;
 		}
 	}

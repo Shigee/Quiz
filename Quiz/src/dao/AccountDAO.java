@@ -70,7 +70,7 @@ public class AccountDAO {
 			String sql = "INSERT INTO ACCOUNT(USER_NAME, PASS) VALUES(?, ?)";
 			//SQLの送信
 			PreparedStatement pSmt = conn.prepareStatement(sql);
-			//VALUESに文字列をセット
+			//レコード追加用のSQL文(INSERT)
 			pSmt.setString(1, newAccount.getUserName());
 			pSmt.setString(2, newAccount.getPass());
 			//INSERT文を実行する
