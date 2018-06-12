@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>くぁあああああああああ</title>
+<title>トップページ</title>
 </head>
 <body>
 <p>ようこそ<c:out value="${userName}" />さん</p>
