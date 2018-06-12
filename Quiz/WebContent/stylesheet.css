@@ -168,3 +168,29 @@ after { clear: both; }
     -ms-transform: translateY(-5px);
     transform: translateY(-5px);
 }
+
+#login form input#new_submit {
+    background-color: #9ec34b;
+    border-radius: 0px 3px 3px 0px;
+    color: #FFF;
+    margin-bottom: 1em;
+    margin: 1em;
+    width: 230px;
+    height:50px;
+    text-align: center;
+}
+#login form input#new_submit  {
+    background-color: #9ec34b;
+    color: #fff !important;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    margin: 10px 0 0 0;
+}
+#login form input#new_submit :hover {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+}
