@@ -72,12 +72,9 @@ after { clear: both; }
     width: 235px;
     height: 50px;
 }
-
-
-
-/**#login form input[type="submit"]**/
 #login form input[type="submit"] {
-    width: 180px;
+    margin: 10px;
+    width: 120px;
     height:50px;
     text-align: center;
     background-color: #9ec34b;
@@ -159,6 +156,47 @@ after { clear: both; }
     opacity: 1;
 }
 .login_btn:active:after{
+    height: 340%;
+    opacity: 1;
+}
+
+#login form input[type="button"] {
+    margin: 10px;
+    width: 120px;
+    height:50px;
+    text-align: center;
+    background-color: #9ec34b;
+    font-size: 16px;
+    line-height: 52px;
+    color: #FFF;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #9ec34b;
+    position: fixed;
+    overflow: hidden;
+    z-index: 1;
+}
+#login form input[type="button"]:after{
+    width: 100%;
+    height: 0;
+    content:"";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background :#008000;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transition: .2s;
+    z-index: -1;
+}
+#login form input[type="button"]:hover{
+    color: #9ec34b;
+}
+#login form input[type="button"]:hover:after{
+    height: 240%;
+    opacity: 1;
+}
+#login form input[type="button"]:active:after{
     height: 340%;
     opacity: 1;
 }
