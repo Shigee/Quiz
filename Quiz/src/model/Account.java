@@ -6,8 +6,11 @@ public class Account {
 	private int score;
 
 	public Account(String userName, String pass, int score){
+
+		HashPass hp = new HashPass();
+
 		this.userName = userName;
-		this.pass = pass;
+		this.pass = hp.encodePassdigiest(pass);
 		this.score = score;
 	}
 
