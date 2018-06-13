@@ -9,11 +9,6 @@
 <body>
 <p><c:out value="${userName}" />さん</p>
 <a href="/Quiz/LoginServlet">ログアウト</a>
-<h1>ゲームタイトル</h1>
-<p>説明</p>
-<form>
-<input type="button" value="ゲームスタート" onclick="location.href='/Quiz/GameServlet'">
-<input type="button" value="ランキング">
-</form>
+<h1>おめ</h1>
 </body>
 </html>
