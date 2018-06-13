@@ -196,3 +196,7 @@ after { clear: both; }
     -ms-transform: translateY(-5px);
     transform: translateY(-5px);
 }
+
+div.center {
+	text-align: center;
+}
