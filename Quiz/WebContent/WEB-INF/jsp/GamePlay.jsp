@@ -5,10 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>ゲーム画面</title>
+<script type="text/javascript" src="${pageContext.request.contextPath}/gameFunction.js"></script>
 </head>
 <body>
 <p><c:out value="${userName}" />さん</p>
 <a href="/Quiz/LoginServlet">ログアウト</a>
-<h1>おめ</h1>
+<p>Q<span id="count">1</span>/10</p>
+<input type="button" value="てすと" onclick="test()">
+<p id="end"></p>
 </body>
 </html>
