@@ -10,8 +10,15 @@
 <body>
 <p><c:out value="${userName}" />さん</p>
 <a href="/Quiz/LoginServlet">ログアウト</a>
-<p>Q<span id="count">1</span>/10</p>
-<input type="button" value="てすと" onclick="test()">
+<p>Q<span id="count"></span>/10</p>
+<div class="main">
+      <p class="button hvr-grow" id="maru">
+        <input type="button" value="○" onclick="btn_click()">
+      </p>
+      <p class="button hvr-grow" id="batsu">
+        <input type="button" value="×" onclick="btn_click()">
+      </p>
+    </div>
 <p id="end"></p>
 </body>
 </html>
