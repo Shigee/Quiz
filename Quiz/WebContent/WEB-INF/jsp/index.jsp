@@ -20,7 +20,7 @@
 <p><c:out value="${userName}" />さん</p>
 <a href="/Quiz/LoginServlet">ログアウト</a>
 <p>説明</p>
-<a class="button hvr-grow-shadow" onclick="location.href='/Quiz/GameServlet'">ログアウト</a>
+<a class="button hvr-grow-shadow" onclick="location.href='/Quiz/GameServlet'">ゲームスタート</a>
 <a href="#" class="button hvr-grow-shadow">ランキング</a>
 </body>
 </html>
