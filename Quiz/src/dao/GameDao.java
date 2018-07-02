@@ -5,13 +5,20 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+
+import model.GameData;
 
 public class GameDao {
 
-	//QUIZテーヴルのデータを取得
-	public String[][] quizList(){
+	//QUIZテーブルのデータを取得
+	public ArrayList<ArrayList<GameData>> quizList(){
 		Connection conn = null;
-		String[][] record;
+		ArrayList<ArrayList<GameData>> list = new ArrayList<>();
+		ArrayList<GameData> level1 = new ArrayList<>();
+		ArrayList<GameData> level2 = new ArrayList<>();
+		ArrayList<GameData> level3 = new ArrayList<>();
+		ArrayList<GameData> level4 = new ArrayList<>();
 
 		//データベースに接続
 		try{
@@ -21,16 +28,6 @@ public class GameDao {
 			Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			String sql = "SELECT * FROM QUIZ";
 			ResultSet rs = stmt.executeQuery(sql);
-			//行数取得
-			rs.last();
-			int rowNum = rs.getRow();
-
-			rs.beforeFirst();
- 			//列数取得
-			int colNum = rs.getMetaData().getColumnCount();
-
-			//行数、列数で配列初期化
-			record = new String[rowNum][colNum];
 
 			while(rs.next()){
 				//各列にアクセスし、全てをStringに変換
@@ -47,31 +44,26 @@ public class GameDao {
 
 			    String com = rs.getString("COMMENT");
 
-
-			    //列番号に応じて取得したデータを格納
-			    for(int i = 1; i < 6; i++){
-			    	switch(i){
-			    		case 1:
-			    			record[rs.getRow() -1][0] = strId;
-			    			break;
-			    		case 2:
-			    			record[rs.getRow() -1][1] = text;
-			    			break;
-			    		case 3:
-			    			record[rs.getRow() -1][2] = strAns;
-			    			break;
-			    		case 4:
-			    			record[rs.getRow() -1][3] = strLevel;
-			    			break;
-			    		case 5:
-			    			record[rs.getRow() -1][4] = com;
-			    			break;
-			    		default:
-			    			System.out.println("ああああああああ");
-			    	}
+			    GameData record = new GameData(strId, text, strAns, strLevel, com);
+			    switch(record.getLevel()){
+			    	case "1":
+			    		level1.add(record);
+			    		break;
+			    	case "2":
+			    		level2.add(record);
+			    		break;
+			    	case "3":
+			    		level3.add(record);
+			    		break;
+			    	case "4":
+			    		level4.add(record);
 			    }
-
 			}
+			list.add(level1);
+			list.add(level2);
+			list.add(level3);
+			list.add(level4);
+
 		}catch(SQLException e){
 			e.printStackTrace();
 			return null;
@@ -88,6 +80,6 @@ public class GameDao {
 				}
 			}
 		}
-		return record;
+		return list;
 	}
 }
