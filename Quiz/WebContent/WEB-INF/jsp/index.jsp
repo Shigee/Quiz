@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="../../toppage.js"></script>
 <link rel="stylesheet"  href="${pageContext.request.contextPath}/toppage.css">
 <link href="css/hover-min.css" rel="stylesheet" media="all">
 <meta charset="UTF-8">
@@ -16,11 +15,9 @@
             <span class="letters">Secure Life</span>
         </span>
     </h1>
-
-<p><c:out value="${userName}" />さん</p>
-<a href="/Quiz/LoginServlet">ログアウト</a>
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <p>説明</p>
-<a class="button hvr-grow-shadow" onclick="location.href='/Quiz/GameServlet?action=getData'"> ゲームスタート</a>
+<a class="button hvr-grow-shadow" onclick="location.href='/Quiz/GameServlet?action=start'"> ゲームスタート</a>
 
 <a href="#" class="button hvr-grow-shadow">ランキング</a>
 </body>

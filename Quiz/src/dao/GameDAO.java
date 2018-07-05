@@ -9,8 +9,7 @@ import java.util.ArrayList;
 
 import model.GameData;
 
-public class GameDao {
-
+public class GameDAO {
 	//QUIZテーブルのデータを取得
 	public ArrayList<ArrayList<GameData>> quizList(){
 		Connection conn = null;

@@ -1,7 +1,8 @@
 package servlet;
 
+
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,20 +23,40 @@ public class GameServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		String action = request.getParameter("action");
-		String forwardPath = null;
+		String forwardPath = "/WEB-INF/jsp/index.jsp";
 
-		if(action.equals("getData")){
+		HttpSession session = request.getSession();
+
+		if(action == null){
+			// リダイレクトに変える（予定）
+			forwardPath = "/WEB-INF/jsp/index.jsp";
+
+		}else if(action.equals("start")){
 			GetGameDataLogic ggdl = new GetGameDataLogic();
-			ArrayList<ArrayList<GameData>> gameData = ggdl.execute();
-			HttpSession session = request.getSession();
-			session.setAttribute("gameData", gameData);
+			GameData[] questionList = ggdl.execute();
+			session.setAttribute("questionList", questionList);
+			session.setAttribute("result", new String[10]);
 			forwardPath = "/WEB-INF/jsp/GamePlay.jsp";
+			RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+			dispatcher.forward(request, response);
+
+		}else if(action.equals("getData")){
+			int questionNum = 0;
+
+			try{
+				questionNum = Integer.parseInt(request.getParameter("questionNum")) -1;
+			}catch(NumberFormatException e){
+				e.printStackTrace();
+			}
+
+			GameData[] questionList = (GameData[])session.getAttribute("questionList");
+
+			String json = "\"" + questionList[questionNum].getText().replace("\\", "\\\\").replace("\'", "\\\'").replace("\"", "\\\"") +"\"";
+
+			response.setContentType("application/json;charset=UTF-8");
+			PrintWriter pw = response.getWriter();
+			pw.print(json);
+			pw.close();
 		}
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
-		dispatcher.forward(request, response);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 	}
 }

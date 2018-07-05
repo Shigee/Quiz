@@ -98,4 +98,46 @@ public class AccountDAO {
 		}
 		return true;
 	}
+
+	public boolean update(String userName, int score){
+		Connection conn = null;
+
+		//データベースに接続
+		try{
+			Class.forName("org.h2.Driver");
+			conn = DriverManager.getConnection("jdbc:h2:~/test","sa","");
+
+			//レコード追加用のSQL文(INSERT)
+			String sql = "UPDATE ACCOUNT SET SCORE = ? WHERE USER_NAME = ?";
+			//SQLの送信
+			PreparedStatement pSmt = conn.prepareStatement(sql);
+			//レコード追加用のSQL文(INSERT)
+			pSmt.setInt(1, score);
+			pSmt.setString(2, userName);
+			//INSERT文を実行する
+			int result = pSmt.executeUpdate();
+
+			if(result != 1){
+				return false;
+			}
+
+		}catch(SQLException e){
+			e.printStackTrace();
+			return false;
+		}catch(ClassNotFoundException e){
+			e.printStackTrace();
+			return false;
+		}finally{
+			if(conn != null){
+				try{
+					conn.close();
+				}catch(SQLException e){
+				e.printStackTrace();
+				return false;
+				}
+			}
+		}
+		return true;
+	}
+
 }
